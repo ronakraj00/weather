@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <script type="module" src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img src="weather-app-default-background.jpg" alt="" id="wallpaper">
+    <header>Weather App</header>
+    <form onsubmit="e.preventDefault()">
+      <input type="text" id="location" placeholder="Enter location" />
+      <button>Search</button>
+    </form>
+    <section>
+      <div id="temp"></div>
+      <div id="image"><img src="" alt="" /></div>
+      <div id="status"></div>
+    </section>
+  </body>
+</html>
