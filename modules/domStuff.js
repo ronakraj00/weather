@@ -13,7 +13,7 @@ export function domStuff(weatherInfo) {
 async function setWallpaper(query) {
   const body = document.querySelector("#wallpaper");
   let wallpaper = await fetch(
-    `https://api.unsplash.com/search/photos?query=${query}&client_id=KXB55fXOYigKnhXTI2ooOc9OJwxamNWipvNC80L8-nw&per_page=1`,
+    `https://api.unsplash.com/search/photos?query=sky ${query}&client_id=KXB55fXOYigKnhXTI2ooOc9OJwxamNWipvNC80L8-nw&per_page=1`,
     { mode: "cors" }
   );
   wallpaper = await wallpaper.json();

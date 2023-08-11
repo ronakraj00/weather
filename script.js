@@ -1,15 +1,14 @@
 import weather from "./modules/weather.js";
 import { domStuff } from "./modules/domStuff.js";
 
-(function(){
-    const locationInput=document.getElementById("location");
-    const submitButton=document.querySelector("form button")
-    submitButton.addEventListener("click",(e)=>{
-        e.preventDefault();
-        appWorking(locationInput.value);
-    })
+(function () {
+  const locationInput = document.getElementById("location");
+  const submitButton = document.querySelector("form button");
+  submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    appWorking(locationInput.value);
+  });
 })();
-
 
 async function fetchWeather(location) {
   const fetchedData = await fetch(
@@ -17,11 +16,10 @@ async function fetchWeather(location) {
   );
   const data = await fetchedData.json();
   return data;
-
 }
 
 function processData(data) {
-    console.log(data);
+  console.log(data);
   const image = data.current.condition.icon;
   const status = data.current.condition.text;
   const temp = data.current.temp_c;
@@ -30,9 +28,9 @@ function processData(data) {
   return weatherInfo;
 }
 
-async function appWorking(location){
-    const data= await fetchWeather(location);
-    const weatherInfo=processData(data);
-    console.log(weatherInfo)
-    domStuff(weatherInfo);
+async function appWorking(location) {
+  const data = await fetchWeather(location);
+  const weatherInfo = processData(data);
+  console.log(weatherInfo);
+  domStuff(weatherInfo);
 }
