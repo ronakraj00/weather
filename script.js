@@ -3,6 +3,7 @@ import { domStuff } from "./modules/domStuff.js";
 
 (function () {
     const locationInput = document.getElementById("location");
+    locationInput.addEventListener("focus",()=>{locationInput.placeholder=''});
     const submitButton = document.querySelector("form button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
