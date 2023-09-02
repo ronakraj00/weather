@@ -17,7 +17,11 @@ async function setWallpaper(query) {
         { mode: "cors" }
     );
     wallpaper = await wallpaper.json();
-    body.style.backgroundImage = `url(${wallpaper.results[randomG()].urls.regular})`;
+    let image=new Image();
+    image.src=wallpaper.results[randomG()].urls.regular;
+    image.addEventListener("load",()=>{
+        body.style.backgroundImage = `url(${image.src})`;
+    })
 }
 
 function randomG() {
