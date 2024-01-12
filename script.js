@@ -30,6 +30,10 @@ function processData(data) {
 
 async function appWorking(location) {
     const data = await fetchWeather(location);
-    const weatherInfo = processData(data);
-    domStuff(weatherInfo);
+    if(data.error){
+        domStuff(data.error.message,null)
+    }else{
+        const weatherInfo = processData(data);
+        domStuff(null,weatherInfo);
+    }
 }
