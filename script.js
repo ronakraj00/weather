@@ -5,12 +5,15 @@ import { domStuff } from "./modules/domStuff.js";
     const locationInput = document.getElementById("location");
     locationInput.addEventListener("focus", () => {
         locationInput.placeholder = "";
+        locationInput.value="";
     });
+    locationInput.value="Delhi, india";
     const submitButton = document.querySelector("form button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
         appWorking(locationInput.value);
     });
+    submitButton.click();
 })();
 
 async function fetchWeather(location) {
