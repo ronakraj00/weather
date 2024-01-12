@@ -2,6 +2,10 @@ export function domStuff(error, weatherInfo) {
     const temp = document.getElementById("temp");
     const image = document.querySelector("#image img");
     const status = document.getElementById("status");
+    const name = document.getElementById("name");
+    const localTime = document.getElementById("local-time");
+    const humidity = document.getElementById("humidity");
+    const feelsLike = document.getElementById("feels-like");
 
     temp.innerHTML ="";
     status.innerText = "";
@@ -12,6 +16,10 @@ export function domStuff(error, weatherInfo) {
         temp.innerHTML = weatherInfo.temp + "<sup>°c</sup>";
         status.innerText = weatherInfo.status;
         image.src = weatherInfo.image;
+        name.innerText=weatherInfo.name;
+        localTime.innerText=weatherInfo.localTime;
+        humidity.innerHTML="Humidity "+ "<span>"+weatherInfo.humidity+"<span>";
+        feelsLike.innerHTML="Feels Like "+"<span>"+weatherInfo.feelsLike+"<span>"+"<sup>°c</sup>";
         setWallpaper(weatherInfo.status);
     }
 }
