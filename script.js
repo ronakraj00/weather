@@ -2,18 +2,22 @@ import weather from "./modules/weather.js";
 import { domStuff } from "./modules/domStuff.js";
 
 (function () {
+    if (navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log(position);
+            appWorking(position.coords.latitude+","+position.coords.longitude)
+        },()=>{appWorking("Delhi, india")},{enableHighAccuracy:true});
+    }
     const locationInput = document.getElementById("location");
     locationInput.addEventListener("focus", () => {
         locationInput.placeholder = "";
-        locationInput.value="";
+        locationInput.value = "";
     });
-    locationInput.value="Delhi, india";
     const submitButton = document.querySelector("form button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
         appWorking(locationInput.value);
     });
-    submitButton.click();
 })();
 
 async function fetchWeather(location) {
