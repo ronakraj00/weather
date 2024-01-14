@@ -75,22 +75,24 @@ section {
     align-items: center;
 }
 
-.location,.condition{
+.location,
+.condition {
     margin: 20px 0px;
     border-bottom: 1px solid white;
-    text-transform:capitalize;
+    text-transform: capitalize;
     backdrop-filter: blur(30px);
     padding: 4px;
     column-gap: 20px;
 }
 
-.location div,.condition div{
+.location div,
+.condition div {
     color: white;
     font-weight: 300;
-
 }
 
-.location div span,.condition div span{
+.location div span,
+.condition div span {
     color: white;
     box-shadow: 0px 2px yellow;
 }
@@ -119,7 +121,7 @@ form {
     margin: 30px 0 0 0;
 }
 
-form input{
+form input {
     text-transform: capitalize;
     text-align: center;
     max-width: 270px;
@@ -134,22 +136,48 @@ form input{
     caret-color: white;
 }
 
-form input:focus{
-    outline:white;
+form input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-left: 10px;
+    background: linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) 43%,
+            #fff 45%,
+            #fff 55%,
+            rgba(0, 0, 0, 0) 57%,
+            rgba(0, 0, 0, 0) 100%
+        ),
+        linear-gradient(
+            135deg,
+            transparent 0%,
+            transparent 43%,
+            #fff 45%,
+            #fff 55%,
+            transparent 57%,
+            transparent 100%
+        );
 }
 
-form button{
-        background: none;
-        border: 1px solid white;
-        background-color: rgba(78, 165, 199, 0);
-        padding: 9px;
-        font-size: x-large;
-        cursor: pointer;
-        backdrop-filter: blur(30px);
-        color: transparent;
+form input:focus {
+    outline: white;
 }
 
-footer{
+form button {
+    background: none;
+    border: 1px solid white;
+    background-color: rgba(78, 165, 199, 0);
+    padding: 9px;
+    font-size: x-large;
+    cursor: pointer;
+    backdrop-filter: blur(30px);
+    color: transparent;
+}
+
+footer {
     backdrop-filter: blur(30px);
     width: 100%;
     text-align: center;
@@ -159,6 +187,6 @@ footer{
     padding-bottom: 15px;
 }
 
-footer span{
+footer span {
     -webkit-text-stroke-color: yellow;
 }
