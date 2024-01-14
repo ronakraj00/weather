@@ -34,7 +34,6 @@ async function fetchWeather(location) {
         `https://api.weatherapi.com/v1/current.json?key=27974539f25945dea0a164307232907&q=${location}`
     );
     const data = await fetchedData.json();
-    console.log(data);
     return data;
 }
 
