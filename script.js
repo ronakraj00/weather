@@ -3,12 +3,17 @@ import { domStuff } from "./modules/domStuff.js";
 import resetDomData from "./modules/resetDomData.js";
 
 (function () {
+    const locationInput = document.getElementById("location");
+    locationInput.addEventListener("focus", () => {
+        locationInput.placeholder = "";
+    });
+
     if (navigator) {
         navigator.geolocation.getCurrentPosition(
-            (position) => {
+            async (position) => {
                 const name = document.getElementById("name");
                 name.innerText = "Please Wait ...";
-                appWorking(
+                locationInput.value = await appWorking(
                     position.coords.latitude + "," + position.coords.longitude
                 );
             },
@@ -18,11 +23,7 @@ import resetDomData from "./modules/resetDomData.js";
             { enableHighAccuracy: true }
         );
     }
-    const locationInput = document.getElementById("location");
-    locationInput.addEventListener("focus", () => {
-        locationInput.placeholder = "";
-        locationInput.value = "";
-    });
+
     const submitButton = document.querySelector("form button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
@@ -79,4 +80,5 @@ async function appWorking(location) {
         const weatherInfo = processData(data);
         domStuff(null, weatherInfo);
     }
+    return data.location.name;
 }
