@@ -1,5 +1,6 @@
 import weather from "./modules/weather.js";
 import { domStuff } from "./modules/domStuff.js";
+import resetDomData from "./modules/resetDomData.js";
 
 (function () {
     if (navigator) {
@@ -25,7 +26,13 @@ import { domStuff } from "./modules/domStuff.js";
     const submitButton = document.querySelector("form button");
     submitButton.addEventListener("click", (e) => {
         e.preventDefault();
-        appWorking(locationInput.value);
+        if (locationInput.value == "") {
+            resetDomData();
+            const name = document.getElementById("name");
+            name.innerText = "Please Enter the Location";
+        } else {
+            appWorking(locationInput.value);
+        }
     });
 })();
 

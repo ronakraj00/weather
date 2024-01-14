@@ -1,3 +1,5 @@
+import resetDomData from "./resetDomData.js";
+
 export function domStuff(error, weatherInfo) {
     const temp = document.getElementById("temp");
     const image = document.querySelector("#image img");
@@ -7,14 +9,8 @@ export function domStuff(error, weatherInfo) {
     const humidity = document.getElementById("humidity");
     const feelsLike = document.getElementById("feels-like");
     if (error) {
+        resetDomData();
         name.innerText = error;
-        status.innerText = "";
-        temp.innerText = "";
-        status.innerText = "";
-        image.src = "";
-        localTime.innerText = "";
-        humidity.innerText = "";
-        feelsLike.innerText = "";
     } else {
         temp.innerHTML = weatherInfo.temp + "<sup>°c</sup>";
         status.innerText = weatherInfo.status;
