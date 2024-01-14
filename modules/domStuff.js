@@ -6,20 +6,29 @@ export function domStuff(error, weatherInfo) {
     const localTime = document.getElementById("local-time");
     const humidity = document.getElementById("humidity");
     const feelsLike = document.getElementById("feels-like");
-
-    temp.innerHTML ="";
-    status.innerText = "";
-    image.src = "";
     if (error) {
-        status.innerText = error;
+        name.innerText = error;
+        status.innerText = "";
+        temp.innerText = "";
+        status.innerText = "";
+        image.src = "";
+        localTime.innerText = "";
+        humidity.innerText = "";
+        feelsLike.innerText = "";
     } else {
         temp.innerHTML = weatherInfo.temp + "<sup>°c</sup>";
         status.innerText = weatherInfo.status;
         image.src = weatherInfo.image;
-        name.innerText=weatherInfo.name;
-        localTime.innerText=weatherInfo.localTime;
-        humidity.innerHTML="Humidity "+ "<span>"+weatherInfo.humidity+"<span>";
-        feelsLike.innerHTML="Feels Like "+"<span>"+weatherInfo.feelsLike+"<span>"+"<sup>°c</sup>";
+        name.innerText = weatherInfo.name;
+        localTime.innerText = weatherInfo.localTime;
+        humidity.innerHTML =
+            "Humidity " + "<span>" + weatherInfo.humidity + "<span>";
+        feelsLike.innerHTML =
+            "Feels Like " +
+            "<span>" +
+            weatherInfo.feelsLike +
+            "<span>" +
+            "<sup>°c</sup>";
         setWallpaper(weatherInfo.status);
     }
 }
