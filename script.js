@@ -3,10 +3,19 @@ import { domStuff } from "./modules/domStuff.js";
 
 (function () {
     if (navigator) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            console.log(position);
-            appWorking(position.coords.latitude+","+position.coords.longitude)
-        },()=>{appWorking("Delhi, india")},{enableHighAccuracy:true});
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const name = document.getElementById("name");
+                name.innerText = "Please Wait ...";
+                appWorking(
+                    position.coords.latitude + "," + position.coords.longitude
+                );
+            },
+            () => {
+                appWorking("Delhi, india");
+            },
+            { enableHighAccuracy: true }
+        );
     }
     const locationInput = document.getElementById("location");
     locationInput.addEventListener("focus", () => {
